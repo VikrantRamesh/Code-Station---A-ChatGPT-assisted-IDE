@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import styled from 'styled-components'
-import { NewFolder, NewPlayground, NewPlaygroundAndFolder, EditFolder, EditPlaygroundTitle, Loading } from './ModalTypes'
+import { NewFolder, NewPlayground, NewPlaygroundAndFolder, EditFolder, EditPlaygroundTitle, Loading, CodexCLI, ReferenceCommands, LookUp } from './ModalTypes'
 import { ModalContext } from '../context/ModalContext'
 
 const ModalContainer = styled.div`
@@ -23,6 +23,7 @@ const ModalContent = styled.div`
     width: 35%;
     min-width: 300px;
     border-radius: 10px;
+    height: fit-content;
 `
 
 export const Header = styled.div`
@@ -78,6 +79,9 @@ const Modal = () => {
         {modalType === 4 && <EditFolder />}
         {modalType === 5 && <EditPlaygroundTitle />}
         {modalType === 6 && <Loading />}
+        {modalType === 7 && <CodexCLI/>}
+        {modalType === 8 && <ReferenceCommands/>}
+        {modalType === 9 && <LookUp/>}
       </ModalContent>
     </ModalContainer>
   )

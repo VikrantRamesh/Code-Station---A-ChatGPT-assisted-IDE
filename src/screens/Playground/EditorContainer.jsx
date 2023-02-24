@@ -5,6 +5,7 @@ import { BiEditAlt, BiImport, BiExport, BiFullscreen } from 'react-icons/bi'
 import { ModalContext } from '../../context/ModalContext'
 import Select from 'react-select';
 import { languageMap } from '../../context/PlaygroundContext'
+import { IoArchiveOutline } from 'react-icons/io5'
 
 const StyledEditorContainer = styled.div`
   display: flex;
@@ -70,6 +71,7 @@ const Button = styled.button`
   border-radius: 32px;
   font-weight: 700;
   cursor: pointer;
+  margin: 0.5em;
 `
 
 const CodeEditorContainer = styled.div`
@@ -128,7 +130,8 @@ const EditorContainer = ({
   runCode,
   getFile,
   isFullScreen,
-  setIsFullScreen
+  setIsFullScreen,
+  consultCodex
 }) => {
 
   const { openModal } = useContext(ModalContext)
@@ -189,6 +192,27 @@ const EditorContainer = ({
             })} />
           </Title>
           <Button onClick={saveCode}>Save code</Button>
+          <Button onClick={() => openModal({
+            show: true,
+            modalType: 7,
+            identifiers: {
+              folderId: folderId,
+              cardId: playgroundId,
+              code: currentCode,
+              language: currentLanguage
+            }
+            })}>Ask AI
+          </Button>
+          <IoArchiveOutline size={30}
+             onClick={() => openModal({
+              show: true,
+              modalType: 9,
+              identifiers: {
+                folderId: folderId,
+                cardId: playgroundId,
+              }
+              })}
+          />
         </Header>
         <SelectBars>
           <Select

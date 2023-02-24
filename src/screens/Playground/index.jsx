@@ -43,6 +43,10 @@ const Playground = () => {
     savePlayground(folderId, playgroundId, currentCode, currentLanguage)
   }
 
+  const consultCodex = () => {
+    console.log("Consulting Codex");
+  }
+
   const encode = (str) => {
     return Buffer.from(str, "binary").toString("base64")
   }
@@ -175,6 +179,7 @@ const Playground = () => {
           getFile={getFile}
           isFullScreen={isFullScreen}
           setIsFullScreen={setIsFullScreen}
+          consultCodex={consultCodex}
         />
         <Consoles>
           <InputConsole

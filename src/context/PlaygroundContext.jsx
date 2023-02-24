@@ -51,6 +51,8 @@ const PlaygroundProvider = ({ children }) => {
         },
     }
 
+
+   
     const [folders, setFolders] = useState(() => {
         let localData = localStorage.getItem('playgrounds-data');
         if (localData === null || localData === undefined) {

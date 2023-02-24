@@ -10,6 +10,8 @@ function ModalProvider({children}){
         identifiers : {
             folderId : "",
             cardId : "",
+            code : "",
+            language : ""
         }
     }
 
