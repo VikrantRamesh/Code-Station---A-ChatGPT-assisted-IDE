@@ -102,12 +102,18 @@ const CodexCLI = () => {
             code : isOpenModal.identifiers.code,
             response: ''
         }
-        let res = await makeApiCall(configObj);
-        res = res.choices[0].text;
-        res = res.replace(/#/g, ' ');
 
-        setResponse(res);
-        setIsRequesting(false);
+        try{
+
+            let res = await makeApiCall(configObj);
+            res = res.choices[0].text;
+            // res = res.replace(/#/g, ' ');
+    
+            setResponse(res);
+            setIsRequesting(false);
+        }catch(err){
+            console.log("Possible Expiration of API KEY");
+        }
     }
 
     const handleCopy = () => {

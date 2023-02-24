@@ -40,12 +40,13 @@ const constructPrompt = (config) => {
 export const useApiCall =  () => {
     
     return (config) => {
-        const API_KEY = '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';
+        // const API_KEY = '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';
+        const API_KEY = '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';
 
         const ENDPOINT = 'https://api.openai.com/v1/engines/davinci-codex/completions';
     
-        // const input = `${constructPrompt(config)}`;
-        const input = `${constructPrompt(config)}. Return the response in markup format`;
+        const input = `${constructPrompt(config)}`;
+        // const input = `${constructPrompt(config)}. Return the response in markup format`;
 
         const params = {
         "prompt": input,
